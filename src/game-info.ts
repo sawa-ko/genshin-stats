@@ -1,4 +1,15 @@
-import genshinDb, { Options } from 'genshin-db';
+import genshinDb, {
+  Artifacts,
+  Characters,
+  Constelations,
+  Elements,
+  Foods,
+  Options,
+  TalentMaterialTypes,
+  Talents,
+  WeaponMaterialTypes,
+  Weapons,
+} from 'genshin-db';
 
 export class GameInfo {
   constructor() {}
@@ -9,7 +20,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Character
    */
-  public getCharacter(character: string, options?: Options) {
+  public getCharacter(character: string, options?: Options): Characters | string[] {
     return genshinDb.characters(character, options);
   }
 
@@ -19,7 +30,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Talent
    */
-  public getTalents(talent: string, options?: Options) {
+  public getTalents(talent: string, options?: Options): Talents | string[] {
     return genshinDb.talents(talent, options);
   }
 
@@ -29,7 +40,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Constellation
    */
-  public getConstellations(constellations: string, options?: Options) {
+  public getConstellations(constellations: string, options?: Options): Constelations | string[] {
     return genshinDb.constellations(constellations, options);
   }
 
@@ -39,7 +50,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Weapon
    */
-  public getWeapons(weapon: string, options?: Options) {
+  public getWeapons(weapon: string, options?: Options): Weapons | string[] {
     return genshinDb.weapons(weapon, options);
   }
 
@@ -49,7 +60,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Weapon
    */
-  public getWeaponMaterialTypes(weapon: string, options?: Options) {
+  public getWeaponMaterialTypes(weapon: string, options?: Options): WeaponMaterialTypes {
     return genshinDb.weaponmaterialtypes(weapon, options);
   }
 
@@ -59,7 +70,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Talen
    */
-  public getTalentMaterialTypes(talent: string, options?: Options) {
+  public getTalentMaterialTypes(talent: string, options?: Options): TalentMaterialTypes {
     return genshinDb.talentmaterialtypes(talent, options);
   }
 
@@ -69,7 +80,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Artifacts
    */
-  public getArtifacts(artifact: string, options?: Options) {
+  public getArtifacts(artifact: string, options?: Options): Artifacts | string[] {
     return genshinDb.artifacts(artifact, options);
   }
 
@@ -79,7 +90,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Food
    */
-  public getFoods(food: string, options?: Options) {
+  public getFoods(food: string, options?: Options): Foods | string[] {
     return genshinDb.foods(food, options);
   }
 
@@ -89,17 +100,7 @@ export class GameInfo {
    * @param options Search options
    * @returns Element
    */
-  public getElements(element: string, options?: Options) {
+  public getElements(element: string, options?: Options): Elements | string[] {
     return genshinDb.elements(element, options);
-  }
-
-  /**
-   * Get Rarity Information
-   * @param character Rarity name
-   * @param options Search options
-   * @returns Rarity
-   */
-  public getRarity(rarity: string, options?: Options) {
-    return genshinDb.rarity(rarity, options);
   }
 }
