@@ -30,6 +30,7 @@ export class UserStats {
         params: { uid: userId },
         headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}` },
       });
+
       const extraUserData = await axios.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
         withCredentials: true,
         params: { role_id: userData.data.data.list[0].game_role_id, server: userData.data.data.list[0].region },
