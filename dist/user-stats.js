@@ -9,6 +9,12 @@ class UserStats {
         if (!this.options) {
             throw new Error('Options not set.');
         }
+        if (this.options.account_id == '') {
+            throw new Error('account_id is required.');
+        }
+        if (this.options.token == '') {
+            throw new Error('token is required.');
+        }
     }
     async getUserStats(userId) {
         try {

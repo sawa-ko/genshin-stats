@@ -11,6 +11,14 @@ export class UserStats {
     if (!this.options) {
       throw new Error('Options not set.');
     }
+
+    if (this.options.account_id == '') {
+      throw new Error('account_id is required.');
+    }
+
+    if (this.options.token == '') {
+      throw new Error('token is required.');
+    }
   }
 
   /**
@@ -30,7 +38,6 @@ export class UserStats {
         params: { uid: userId },
         headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}` },
       });
-
       const extraUserData = await axios.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
         withCredentials: true,
         params: { role_id: userData.data.data.list[0].game_role_id, server: userData.data.data.list[0].region },

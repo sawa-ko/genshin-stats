@@ -157,7 +157,7 @@
         "affectsGlobalScope": false
       },
       "../src/user-stats.ts": {
-        "version": "5b0acfdf7e2aa58ee4e7b93bf9107cc064b4b93c9386966b6f123c91bfcfc614",
+        "version": "4255a012c7e38223bb78353e0b0da8688295a195350e69b88f6d8ba024650f9e",
         "signature": "4f2722bb984eff107bf15a0e57b97abecdda283c4fc35bb3930006b8a218f94d",
         "affectsGlobalScope": false
       },
