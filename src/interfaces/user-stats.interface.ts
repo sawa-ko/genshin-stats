@@ -7,7 +7,7 @@ export interface UserStatsI {
   };
   nickname: string;
   level: number;
-  regio: string;
+  region: string;
   game_id: string;
   public: boolean;
   stats: {
