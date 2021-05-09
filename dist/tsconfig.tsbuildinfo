@@ -152,12 +152,12 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/user-stats.interface.ts": {
-        "version": "7b7e54ff95b14a980b8dd72174f7da0cf7f73d0f7ca320953e045ecec81d24a0",
-        "signature": "83540c566e05cee83acba467870b27200ba74d489366e4fd22406d4bc9f6a390",
+        "version": "eed61d0c2cda791173a4fa729b10cb64522e8dfb253b2c326554fc9ab77ea678",
+        "signature": "3261ab0aaedabe8edbde6933040488499c069cfbfa4426859d55020a011763bf",
         "affectsGlobalScope": false
       },
       "../src/user-stats.ts": {
-        "version": "4255a012c7e38223bb78353e0b0da8688295a195350e69b88f6d8ba024650f9e",
+        "version": "fd225a0c93d0de157aad7e35b07092e4500ba12413cf55d71bed7cbdeb2a25d6",
         "signature": "4f2722bb984eff107bf15a0e57b97abecdda283c4fc35bb3930006b8a218f94d",
         "affectsGlobalScope": false
       },

@@ -53,7 +53,7 @@ export class UserStats {
         },
         nickname: userData.data.data.list[0].nickname,
         level: userData.data.data.list[0].level,
-        regio: userData.data.data.list[0].region,
+        region: userData.data.data.list[0].region,
         game_id: userData.data.data.list[0].game_role_id,
         public: userData.data.data.list[0].is_public,
         stats: extraUserData.data.data.stats,
