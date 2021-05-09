@@ -6,6 +6,8 @@ const axios_1 = tslib_1.__importDefault(require("axios"));
 class UserStats {
     constructor(options) {
         this.options = options;
+    }
+    async getFullUserStats(userId) {
         if (!this.options) {
             throw new Error('Options not set.');
         }
@@ -15,8 +17,6 @@ class UserStats {
         if (this.options.token == '') {
             throw new Error('token is required.');
         }
-    }
-    async getUserStats(userId) {
         try {
             const userForumData = await axios_1.default.get('https://api-os-takumi.mihoyo.com/community/user/wapi/getUserFullInfo', {
                 withCredentials: true,
@@ -28,7 +28,10 @@ class UserStats {
                 params: { uid: userId },
                 headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}` },
             });
-            const extraUserData = await axios_1.default.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
+            if (userData.data.data.list) {
+                throw new Error('User not found.');
+            }
+            const statsUserData = await axios_1.default.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
                 withCredentials: true,
                 params: { role_id: userData.data.data.list[0].game_role_id, server: userData.data.data.list[0].region },
                 headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}`, 'x-rpc-language': 'en-us' },
@@ -45,10 +48,31 @@ class UserStats {
                 region: userData.data.data.list[0].region,
                 game_id: userData.data.data.list[0].game_role_id,
                 public: userData.data.data.list[0].is_public,
-                stats: extraUserData.data.data.stats,
-                characters: extraUserData.data.data.avatars,
-                city_explorations: extraUserData.data.data.city_explorations,
-                world_explorations: extraUserData.data.data.world_explorations,
+                stats: statsUserData.data.data.stats,
+                characters: statsUserData.data.data.avatars,
+                city_explorations: statsUserData.data.data.city_explorations,
+                world_explorations: statsUserData.data.data.world_explorations,
+            };
+        }
+        catch (error) {
+            throw new Error(error.response || error);
+        }
+    }
+    async getUserStats(userId, region) {
+        try {
+            const statsUserData = await axios_1.default.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
+                withCredentials: true,
+                params: { role_id: userId, server: `os_${region}` },
+                headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}`, 'x-rpc-language': 'en-us' },
+            });
+            if (statsUserData.data.data == null) {
+                throw new Error('User not found.');
+            }
+            return {
+                stats: statsUserData.data.data.stats,
+                characters: statsUserData.data.data.avatars,
+                city_explorations: statsUserData.data.data.city_explorations,
+                world_explorations: statsUserData.data.data.world_explorations,
             };
         }
         catch (error) {
