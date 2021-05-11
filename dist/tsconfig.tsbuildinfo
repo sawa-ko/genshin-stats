@@ -147,8 +147,8 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/items.interface.ts": {
-        "version": "6614b2648f913415b7f792acd5163df841211ef478b18d139a1dfc6b4c4972ff",
-        "signature": "374c8a57482db596f131e63a7aa8f3518586b08248f3b9b3b2e53d5a5d31f966",
+        "version": "720233ce4263d827cc1ba70c901ba3840ba564b35949ee159ec00be31510435b",
+        "signature": "8b0680a759c74b76871ce789d6a65dfda4d202a79dcfa00a9b14c1c79e386d7f",
         "affectsGlobalScope": false
       },
       "../src/game-info.ts": {

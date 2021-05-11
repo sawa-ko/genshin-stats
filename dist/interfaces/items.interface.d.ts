@@ -1,6 +1,6 @@
 export interface OptionsItemsI {
     matchAliases?: boolean;
-    matchCategories: boolean;
+    matchCategories?: boolean;
     verboseCategories?: boolean;
     queryLanguages?: string[];
     resultLanguage?: string[];
