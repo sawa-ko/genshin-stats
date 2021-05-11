@@ -147,8 +147,8 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/items.interface.ts": {
-        "version": "7780cdb11c310b08be419dc018767d4c5ead14a469612860365a17ffd38b7135",
-        "signature": "90cea1144b721f2676e60851bf4f90d59227edc3714eaa1792e2b5a72403e676",
+        "version": "0c0f3909e5e210ae70ee054d4fbecd738f81f674c1185fe86e5f9800a0efd077",
+        "signature": "52ff1e87ca78a660e365146a6ce030201e7b58b38336ee21869d6e1b4b389b6a",
         "affectsGlobalScope": false
       },
       "../src/game-info.ts": {
@@ -437,8 +437,8 @@
         "affectsGlobalScope": false
       },
       "../typings/genshin-db/index.d.ts": {
-        "version": "bdeaee1a8e4bd7b61980d46e4bc785c5d4338ad21f92faa417c1858f2d302df7",
-        "signature": "bdeaee1a8e4bd7b61980d46e4bc785c5d4338ad21f92faa417c1858f2d302df7",
+        "version": "3b73bff14f8f0829407258d81aa9fb8a5432a8753585024dd8de9756f86b6d7e",
+        "signature": "3b73bff14f8f0829407258d81aa9fb8a5432a8753585024dd8de9756f86b6d7e",
         "affectsGlobalScope": false
       }
     },

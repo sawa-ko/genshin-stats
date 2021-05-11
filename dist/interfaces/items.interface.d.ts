@@ -50,48 +50,48 @@ export interface TalentsI {
     name: string;
     combat1: {
         name: string;
-        image: string;
         info: string;
-        attributes: string;
+        description: string;
+        image: string;
     };
     combat2: {
         name: string;
-        image: string;
         info: string;
         description: string;
-        attributes: string;
+        image: string;
     };
     combat3: {
         name: string;
-        image: string;
         info: string;
         description: string;
-        attributes: string;
+        image: string;
     };
     passive1: {
         name: string;
-        image: string;
         info: string;
+        description: string;
+        image: string;
     };
     passive2: {
         name: string;
-        image: string;
         info: string;
+        description: string;
+        image: string;
     };
     passive3: {
         name: string;
-        image: string;
         info: string;
+        description: string;
+        image: string;
     };
     images: {
-        flower: string;
-        plume: string;
-        sands: string;
-        goblet: string;
-        circlet: string;
-    };
-    url: {
-        fandom: string;
+        combat1: string;
+        combat2: string;
+        combatsp: string;
+        combat3: string;
+        passive1: string;
+        passive2: string;
+        passive3: string;
     };
 }
 export interface ConstelationsI {
@@ -125,16 +125,6 @@ export interface ConstelationsI {
         name: string;
         effect: string;
         image: string;
-    };
-    images: {
-        flower: string;
-        plume: string;
-        sands: string;
-        goblet: string;
-        circlet: string;
-    };
-    url: {
-        fandom: string;
     };
 }
 export interface WeaponMaterialTypesI {
@@ -174,17 +164,12 @@ export interface WeaponsI {
     r4: string[];
     r5: string[];
     weaponmaterialtype: string;
+    url: string;
     images: {
-        flower: string;
-        plume: string;
-        sands: string;
-        goblet: string;
-        circlet: string;
+        icon: string;
+        awakenicon: string;
     };
-    url: {
-        fandom: string;
-    };
-    stats: [];
+    stats(): unknown;
 }
 export interface FoodsI {
     name: string;
@@ -210,13 +195,7 @@ export interface FoodsI {
         name: string;
         count: number;
     }>;
-    images: {
-        flower: string;
-        plume: string;
-        sands: string;
-        goblet: string;
-        circlet: string;
-    };
+    images: unknown;
     url: {
         fandom: string;
     };
@@ -229,14 +208,5 @@ export interface ElementsI {
     region: string;
     archon: string;
     theme: string;
-    images: {
-        flower: string;
-        plume: string;
-        sands: string;
-        goblet: string;
-        circlet: string;
-    };
-    url: {
-        fandom: string;
-    };
+    url: string;
 }
