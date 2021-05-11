@@ -1,5 +1,5 @@
 declare module 'genshin-db' {
-  export interface Options {
+  export interface OptionsI {
     matchAliases?: boolean;
     matchCategories?: boolean;
     verboseCategories?: boolean;
@@ -7,57 +7,7 @@ declare module 'genshin-db' {
     resultLanguage?: string[];
   }
 
-  export interface Artifacts {
-    name: string;
-    minrarity: number;
-    maxrarity: number;
-    flower: {
-      name: string;
-      images: {
-        image: string;
-      };
-      description: string;
-    };
-    plume: {
-      name: string;
-      images: {
-        image: string;
-      };
-      description: string;
-    };
-    sands: {
-      name: string;
-      images: {
-        image: string;
-      };
-      description: string;
-    };
-    goblet: {
-      name: string;
-      images: {
-        image: string;
-      };
-      description: string;
-    };
-    circlet: {
-      name: string;
-      images: {
-        image: string;
-      };
-      description: string;
-    };
-    '2pc': string;
-    '4pc': string;
-    drop: {
-      '1': [];
-      '2': [];
-      '3': [];
-      '4': [];
-      '5': [];
-    };
-  }
-
-  export interface Characters {
+  export interface CharactersI {
     name: string;
     title: string;
     description: string;
@@ -94,7 +44,47 @@ declare module 'genshin-db' {
     stats(): unknown;
   }
 
-  export interface Talents {
+  export interface ArtifactsI {
+    name: string;
+    rarity: ['1', '2', '3'];
+    '2pc': string;
+    '4pc': string;
+    flower: {
+      name: string;
+      relictype: string;
+      description: string;
+    };
+    plume: {
+      name: string;
+      relictype: string;
+      description: string;
+    };
+    sands: {
+      name: string;
+      relictype: string;
+      description: string;
+    };
+    goblet: {
+      name: string;
+      relictype: string;
+      description: string;
+    };
+    circlet: {
+      name: string;
+      relictype: string;
+      description: string;
+    };
+    images: {
+      flower: string;
+      plume: string;
+      sands: string;
+      goblet: string;
+      circlet: string;
+    };
+    url: { fandom: string };
+  }
+
+  export interface TalentsI {
     name: string;
     combat1: {
       name: string;
@@ -131,9 +121,17 @@ declare module 'genshin-db' {
       image: string;
       info: string;
     };
+    images: {
+      flower: string;
+      plume: string;
+      sands: string;
+      goblet: string;
+      circlet: string;
+    };
+    url: { fandom: string };
   }
 
-  export interface Constelations {
+  export interface ConstelationsI {
     name: string;
     c1: {
       name: string;
@@ -165,9 +163,17 @@ declare module 'genshin-db' {
       effect: string;
       image: string;
     };
+    images: {
+      flower: string;
+      plume: string;
+      sands: string;
+      goblet: string;
+      circlet: string;
+    };
+    url: { fandom: string };
   }
 
-  export interface WeaponMaterialTypes {
+  export interface WeaponMaterialTypesI {
     name: string;
     '2starname': string;
     '3starname': string;
@@ -179,7 +185,7 @@ declare module 'genshin-db' {
     domainofforgery: string;
   }
 
-  export interface TalentMaterialTypes {
+  export interface TalentMaterialTypesI {
     name: string;
     '2starname': string;
     '3starname': string;
@@ -190,7 +196,7 @@ declare module 'genshin-db' {
     domainofmastery: string;
   }
 
-  export interface Weapons {
+  export interface WeaponsI {
     name: string;
     description: string;
     weapontype: string;
@@ -206,18 +212,20 @@ declare module 'genshin-db' {
     r4: string[];
     r5: string[];
     weaponmaterialtype: string;
-    url: string;
-    images: Array<{
-      image: string;
-      icon: string;
-      awakenicon: string;
-    }>;
+    images: {
+      flower: string;
+      plume: string;
+      sands: string;
+      goblet: string;
+      circlet: string;
+    };
+    url: { fandom: string };
     stats: [];
   }
 
-  export interface Foods {
+  export interface FoodsI {
     name: string;
-    rarity: 5;
+    rarity: number;
     foodtype: string;
     foodfilter: string;
     foodcategory: string;
@@ -235,18 +243,18 @@ declare module 'genshin-db' {
       effect: string;
       description: string;
     };
-    ingredients: [{ name: 'Ham'; count: 4 }, { name: 'Crab'; count: 3 }, { name: 'Shrimp Meat'; count: 3 }, { name: 'Matsutake'; count: 3 }];
-    images: Array<{
-      image: string;
-      icon: string;
-      awakenicon: string;
-    }>;
-    url: {
-      fandom: string;
+    ingredients: Array<{ name: string; count: number }>;
+    images: {
+      flower: string;
+      plume: string;
+      sands: string;
+      goblet: string;
+      circlet: string;
     };
+    url: { fandom: string };
   }
 
-  export interface Elements {
+  export interface ElementsI {
     name: string;
     type: string;
     color: string;
@@ -254,29 +262,35 @@ declare module 'genshin-db' {
     region: string;
     archon: string;
     theme: string;
-    url: string;
-    images: string;
+    images: {
+      flower: string;
+      plume: string;
+      sands: string;
+      goblet: string;
+      circlet: string;
+    };
+    url: { fandom: string };
   }
 
-  export function setOptions(options: Options): void;
+  export function setOptions(options: OptionsI): void;
 
-  export function getOptions(): Options;
+  export function getOptions(): OptionsI;
 
-  export function characters(query: string, options?: Options): Characters;
+  export function characters(query: string, options?: OptionsI): CharactersI;
 
-  export function talents(query: string, options?: Options): Talents;
+  export function talents(query: string, options?: OptionsI): TalentsI;
 
-  export function constellations(query: string, options?: Options): Constelations;
+  export function constellations(query: string, options?: OptionsI): ConstelationsI;
 
-  export function weapons(query: string, options?: Options): Weapon;
+  export function weapons(query: string, options?: OptionsI): WeaponI;
 
-  export function weaponmaterialtypes(query: string, options?: Options): WeaponMaterialTypes;
+  export function weaponmaterialtypes(query: string, options?: OptionsI): WeaponMaterialTypesI;
 
-  export function talentmaterialtypes(query: string, options?: Options): TalentMaterialTypes;
+  export function talentmaterialtypes(query: string, options?: OptionsI): TalentMaterialTypesI;
 
-  export function artifacts(query: string, options?: Options): Artifacts;
+  export function artifacts(query: string, options?: OptionsI): ArtifactsI;
 
-  export function foods(query: string, options?: Options): Foods;
+  export function foods(query: string, options?: OptionsI): FoodsI;
 
-  export function elements(query: string, options?: Options): Elements;
+  export function elements(query: string, options?: OptionsI): ElementsI;
 }

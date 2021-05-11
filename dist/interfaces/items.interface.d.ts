@@ -7,51 +7,43 @@ export interface OptionsItemsI {
 }
 export interface ArtifactsI {
     name: string;
-    minrarity: number;
-    maxrarity: number;
+    rarity: ['1', '2', '3'];
+    '2pc': string;
+    '4pc': string;
     flower: {
         name: string;
-        images: {
-            image: string;
-        };
+        relictype: string;
         description: string;
     };
     plume: {
         name: string;
-        images: {
-            image: string;
-        };
+        relictype: string;
         description: string;
     };
     sands: {
         name: string;
-        images: {
-            image: string;
-        };
+        relictype: string;
         description: string;
     };
     goblet: {
         name: string;
-        images: {
-            image: string;
-        };
+        relictype: string;
         description: string;
     };
     circlet: {
         name: string;
-        images: {
-            image: string;
-        };
+        relictype: string;
         description: string;
     };
-    '2pc': string;
-    '4pc': string;
-    drop: {
-        '1': [];
-        '2': [];
-        '3': [];
-        '4': [];
-        '5': [];
+    images: {
+        flower: string;
+        plume: string;
+        sands: string;
+        goblet: string;
+        circlet: string;
+    };
+    url: {
+        fandom: string;
     };
 }
 export interface TalentsI {
@@ -91,6 +83,16 @@ export interface TalentsI {
         image: string;
         info: string;
     };
+    images: {
+        flower: string;
+        plume: string;
+        sands: string;
+        goblet: string;
+        circlet: string;
+    };
+    url: {
+        fandom: string;
+    };
 }
 export interface ConstelationsI {
     name: string;
@@ -123,6 +125,16 @@ export interface ConstelationsI {
         name: string;
         effect: string;
         image: string;
+    };
+    images: {
+        flower: string;
+        plume: string;
+        sands: string;
+        goblet: string;
+        circlet: string;
+    };
+    url: {
+        fandom: string;
     };
 }
 export interface WeaponMaterialTypesI {
@@ -162,17 +174,21 @@ export interface WeaponsI {
     r4: string[];
     r5: string[];
     weaponmaterialtype: string;
-    url: string;
-    images: Array<{
-        image: string;
-        icon: string;
-        awakenicon: string;
-    }>;
+    images: {
+        flower: string;
+        plume: string;
+        sands: string;
+        goblet: string;
+        circlet: string;
+    };
+    url: {
+        fandom: string;
+    };
     stats: [];
 }
 export interface FoodsI {
     name: string;
-    rarity: 5;
+    rarity: number;
     foodtype: string;
     foodfilter: string;
     foodcategory: string;
@@ -190,24 +206,17 @@ export interface FoodsI {
         effect: string;
         description: string;
     };
-    ingredients: [{
-        name: 'Ham';
-        count: 4;
-    }, {
-        name: 'Crab';
-        count: 3;
-    }, {
-        name: 'Shrimp Meat';
-        count: 3;
-    }, {
-        name: 'Matsutake';
-        count: 3;
-    }];
-    images: Array<{
-        image: string;
-        icon: string;
-        awakenicon: string;
+    ingredients: Array<{
+        name: string;
+        count: number;
     }>;
+    images: {
+        flower: string;
+        plume: string;
+        sands: string;
+        goblet: string;
+        circlet: string;
+    };
     url: {
         fandom: string;
     };
@@ -220,6 +229,14 @@ export interface ElementsI {
     region: string;
     archon: string;
     theme: string;
-    url: string;
-    images: string;
+    images: {
+        flower: string;
+        plume: string;
+        sands: string;
+        goblet: string;
+        circlet: string;
+    };
+    url: {
+        fandom: string;
+    };
 }
