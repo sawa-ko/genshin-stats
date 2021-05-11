@@ -1,10 +1,10 @@
 declare module 'genshin-db' {
   export interface Options {
-    matchAliases: boolean;
-    matchCategories: boolean;
-    verboseCategories: boolean;
-    queryLanguages: string[];
-    resultLanguage: string[];
+    matchAliases?: boolean;
+    matchCategories?: boolean;
+    verboseCategories?: boolean;
+    queryLanguages?: string[];
+    resultLanguage?: string[];
   }
 
   export interface Artifacts {

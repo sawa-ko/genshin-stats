@@ -1,9 +1,9 @@
 export interface OptionsItemsI {
-  matchAliases: boolean;
+  matchAliases?: boolean;
   matchCategories: boolean;
-  verboseCategories: boolean;
-  queryLanguages: string[];
-  resultLanguage: string[];
+  verboseCategories?: boolean;
+  queryLanguages?: string[];
+  resultLanguage?: string[];
 }
 
 export interface ArtifactsI {
