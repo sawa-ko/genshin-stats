@@ -60,30 +60,38 @@ declare module 'genshin-db' {
   export interface Characters {
     name: string;
     title: string;
+    description: string;
+    rarity: string;
     element: string;
     weapontype: string;
+    substat: string;
     gender: string;
     body: string;
-    rarity: string;
+    association: string;
+    region: string;
+    affiliation: string;
+    birthdaymmdd: string;
     birthday: string;
-    birthdayunformatted: string;
     constellation: string;
-    substat: string;
+    cv: {
+      english: string;
+      chinese: string;
+      japanese: string;
+      korean: string;
+    };
+    talentmaterialtype: string;
     images: {
       image: string;
       card: string;
       portrait: string;
+      icon: string;
+      sideicon: string;
+      cover1: string;
+      cover2: string;
+      'hoyolab-avatar': string;
     };
-    cv: {
-      english: string;
-      japanese: string;
-      korean: string;
-      chinese: string;
-    };
-    affiliation: string;
-    description: string;
-    talentmaterialtype: string;
-    url: string;
+    url: { fandom: string };
+    stats(): unknown;
   }
 
   export interface Talents {
