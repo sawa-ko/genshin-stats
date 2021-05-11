@@ -1,6 +1,6 @@
 {
   "name": "genshin-stats",
-  "version": "1.0.44",
+  "version": "1.0.48",
   "description": "Wrapper for Genshin Impact user statistics and game items and characters data.",
   "main": "dist/index.js",
   "author": "kaname-png",

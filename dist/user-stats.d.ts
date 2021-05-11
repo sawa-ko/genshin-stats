@@ -2,6 +2,7 @@ import { UserFullStatsI, UserStatsI } from './interfaces/user-stats.interface';
 export declare class UserStats {
     private options;
     private cookieOptions;
+    private availableRegions;
     constructor(options: {
         account_id: string;
         token: string;

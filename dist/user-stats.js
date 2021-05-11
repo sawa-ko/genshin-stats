@@ -6,7 +6,8 @@ const axios_1 = tslib_1.__importDefault(require("axios"));
 class UserStats {
     constructor(options) {
         this.options = options;
-        this.cookieOptions = '';
+        this.cookieOptions = null;
+        this.availableRegions = ['euro', 'usa', 'asia', 'cht'];
         if (!this.options) {
             throw new Error('Options not set.');
         }
@@ -63,6 +64,9 @@ class UserStats {
         }
     }
     async getUserStats(userId, region) {
+        if (!this.availableRegions.includes(region)) {
+            throw new Error(`Region not available. The available regions are ${this.availableRegions.join(', ')}`);
+        }
         try {
             const statsUserData = await axios_1.default.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
                 withCredentials: true,

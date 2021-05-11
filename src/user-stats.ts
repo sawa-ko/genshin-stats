@@ -3,7 +3,8 @@ import axios from 'axios';
 import { UserFullStatsI, UserStatsI } from './interfaces/user-stats.interface';
 
 export class UserStats {
-  private cookieOptions = '';
+  private cookieOptions: string = null;
+  private availableRegions: string[] = ['euro', 'usa', 'asia', 'cht'];
 
   /**
    * Client options
@@ -82,6 +83,10 @@ export class UserStats {
    * @returns Game user data
    */
   public async getUserStats(userId: string, region: string): Promise<UserStatsI> {
+    if (!this.availableRegions.includes(region)) {
+      throw new Error(`Region not available. The available regions are ${this.availableRegions.join(', ')}`);
+    }
+
     try {
       const statsUserData = await axios.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
         withCredentials: true,
