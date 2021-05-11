@@ -3,11 +3,28 @@ import axios from 'axios';
 import { UserFullStatsI, UserStatsI } from './interfaces/user-stats.interface';
 
 export class UserStats {
+  private cookieOptions = '';
+
   /**
    * Client options
    * @param options Set the account ID of the obtained token. More information at README.md
    */
-  constructor(private options?: { account_id: string; token: string }) {}
+  constructor(private options: { account_id: string; token: string; lang?: string }) {
+    if (!this.options) {
+      throw new Error('Options not set.');
+    }
+
+    if (!this.options.account_id.length) {
+      throw new Error('account_id is required.');
+    }
+
+    if (!this.options.token.length) {
+      throw new Error('token is required.');
+    }
+
+    if (!this.options.lang) this.options.lang = 'en-us';
+    this.cookieOptions = `ltoken=${this.options.token}; ltuid=${this.options.account_id};`;
+  }
 
   /**
    * Get Genshin Impact player and forum information
@@ -15,28 +32,16 @@ export class UserStats {
    * @returns Game and forum user data
    */
   public async getFullUserStats(userId: string): Promise<UserFullStatsI> {
-    if (!this.options) {
-      throw new Error('Options not set.');
-    }
-
-    if (this.options.account_id == '') {
-      throw new Error('account_id is required.');
-    }
-
-    if (this.options.token == '') {
-      throw new Error('token is required.');
-    }
-
     try {
       const userForumData = await axios.get('https://api-os-takumi.mihoyo.com/community/user/wapi/getUserFullInfo', {
         withCredentials: true,
         params: { uid: userId, gids: 2 },
-        headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}` },
+        headers: { cookie: this.cookieOptions, 'x-rpc-language': this.options.lang },
       });
       const userData = await axios.get('https://api-os-takumi.mihoyo.com/game_record/card/wapi/getGameRecordCard', {
         withCredentials: true,
         params: { uid: userId },
-        headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}` },
+        headers: { cookie: this.cookieOptions, 'x-rpc-language': this.options.lang },
       });
 
       if (userData.data.data.list) {
@@ -46,7 +51,7 @@ export class UserStats {
       const statsUserData = await axios.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
         withCredentials: true,
         params: { role_id: userData.data.data.list[0].game_role_id, server: userData.data.data.list[0].region },
-        headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}`, 'x-rpc-language': 'en-us' },
+        headers: { cookie: this.cookieOptions, 'x-rpc-language': this.options.lang },
       });
 
       return {
@@ -81,7 +86,7 @@ export class UserStats {
       const statsUserData = await axios.get('https://api-os-takumi.mihoyo.com/game_record/genshin/api/index', {
         withCredentials: true,
         params: { role_id: userId, server: `os_${region}` },
-        headers: { cookie: `ltoken=${this.options.token}; ltuid=${this.options.account_id}`, 'x-rpc-language': 'en-us' },
+        headers: { cookie: this.cookieOptions, 'x-rpc-language': this.options.lang },
       });
 
       if (statsUserData.data.data == null) {
