@@ -141,9 +141,19 @@
         "signature": "ea7abf23498b7c214c67fc14f22f41983fbb7bf7c4826c7fcdef542b2022545f",
         "affectsGlobalScope": false
       },
+      "../src/interfaces/characters.interface.ts": {
+        "version": "d16a30c5bd23dc2fec85231834993d618cdfaa9fa623a545718081772fee3265",
+        "signature": "bb73aade5dc34745ee593a1c976871c1cc23ec0b87dc3bb748d2f31ea344feec",
+        "affectsGlobalScope": false
+      },
+      "../src/interfaces/items.interface.ts": {
+        "version": "28652243ab026800e38a9aa999e946cd3eeeaea4c4068d73d784b237ac225396",
+        "signature": "c422d2757b906fb192163c33c39a2864375caff0ba6b7bc4c7f07af74a45c6bb",
+        "affectsGlobalScope": false
+      },
       "../src/game-info.ts": {
-        "version": "0ba0fb25674fd4e6eb8facd89e56ec00841d3a364648f33c9176d65d72e4f2ff",
-        "signature": "93c98a00273485f2b58b177111030532f681996a424e15173eceee5f5412ae12",
+        "version": "913d6f514af88c4498d84ea460757429ee55d688496dd8dcba69a57655ec8444",
+        "signature": "4515e44073fc5d0f658d6e99f422ec5f14bd153a645f0ecbf33de3773ae5ef9e",
         "affectsGlobalScope": false
       },
       "../node_modules/axios/index.d.ts": {
@@ -427,8 +437,8 @@
         "affectsGlobalScope": false
       },
       "../typings/genshin-db/index.d.ts": {
-        "version": "e265d5149b4588b0b2aacdcaa4a16bd36d15687582da2420c96d2531b772234d",
-        "signature": "e265d5149b4588b0b2aacdcaa4a16bd36d15687582da2420c96d2531b772234d",
+        "version": "5772c48898c8b4b07ce8bfb5b8115da5f5713a86bd3b695ce77ddae63df7dae3",
+        "signature": "5772c48898c8b4b07ce8bfb5b8115da5f5713a86bd3b695ce77ddae63df7dae3",
         "affectsGlobalScope": false
       }
     },
@@ -649,12 +659,20 @@
       ],
       "../src/game-info.ts": [
         "../node_modules/tslib/tslib.d.ts",
+        "../src/interfaces/characters.interface.ts",
+        "../src/interfaces/items.interface.ts",
         "../typings/genshin-db/index.d.ts"
       ],
       "../src/index.ts": [
         "../node_modules/tslib/tslib.d.ts",
         "../src/game-info.ts",
         "../src/user-stats.ts"
+      ],
+      "../src/interfaces/characters.interface.ts": [
+        "../node_modules/tslib/tslib.d.ts"
+      ],
+      "../src/interfaces/items.interface.ts": [
+        "../node_modules/tslib/tslib.d.ts"
       ],
       "../src/interfaces/user-stats.interface.ts": [
         "../node_modules/tslib/tslib.d.ts"
@@ -849,7 +867,8 @@
         "../node_modules/@types/node/stream.d.ts"
       ],
       "../src/game-info.ts": [
-        "../typings/genshin-db/index.d.ts"
+        "../src/interfaces/characters.interface.ts",
+        "../src/interfaces/items.interface.ts"
       ],
       "../src/index.ts": [
         "../src/game-info.ts",
@@ -943,6 +962,8 @@
       "../node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "../src/game-info.ts",
       "../src/index.ts",
+      "../src/interfaces/characters.interface.ts",
+      "../src/interfaces/items.interface.ts",
       "../src/interfaces/user-stats.interface.ts",
       "../src/user-stats.ts",
       "../typings/genshin-db/index.d.ts"

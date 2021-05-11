@@ -254,21 +254,21 @@ declare module 'genshin-db' {
 
   export function getOptions(): Options;
 
-  export function characters(query: string, options?: Options): Characters | string[];
+  export function characters(query: string, options?: Options): Characters;
 
-  export function talents(query: string, options?: Options): Talents | string[];
+  export function talents(query: string, options?: Options): Talents;
 
-  export function constellations(query: string, options?: Options): Constelations | string[];
+  export function constellations(query: string, options?: Options): Constelations;
 
-  export function weapons(query: string, options?: Options): Weapon | string[];
+  export function weapons(query: string, options?: Options): Weapon;
 
   export function weaponmaterialtypes(query: string, options?: Options): WeaponMaterialTypes;
 
   export function talentmaterialtypes(query: string, options?: Options): TalentMaterialTypes;
 
-  export function artifacts(query: string, options?: Options): Artifacts | string[];
+  export function artifacts(query: string, options?: Options): Artifacts;
 
-  export function foods(query: string, options?: Options): Foods | string[];
+  export function foods(query: string, options?: Options): Foods;
 
-  export function elements(query: string, options?: Options): Elements | string[];
+  export function elements(query: string, options?: Options): Elements;
 }
