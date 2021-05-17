@@ -4,6 +4,10 @@ exports.UserStats = void 0;
 const tslib_1 = require("tslib");
 const axios_1 = tslib_1.__importDefault(require("axios"));
 class UserStats {
+    /**
+     * Client options
+     * @param options Set the account ID of the obtained token. More information at README.md
+     */
     constructor(options) {
         this.options = options;
         this.cookieOptions = null;
@@ -21,6 +25,11 @@ class UserStats {
             this.options.lang = 'en-us';
         this.cookieOptions = `ltoken=${this.options.token}; ltuid=${this.options.account_id};`;
     }
+    /**
+     * Get Genshin Impact player and forum information
+     * @param userId User forum id
+     * @returns Game and forum user data
+     */
     async getFullUserStats(userId) {
         try {
             const userForumData = await axios_1.default.get('https://api-os-takumi.mihoyo.com/community/user/wapi/getUserFullInfo', {
@@ -63,6 +72,11 @@ class UserStats {
             throw new Error(error.response || error);
         }
     }
+    /**
+     * Get Genshin Impact player information
+     * @param userId User game id
+     * @returns Game user data
+     */
     async getUserStats(userId, region) {
         if (!this.availableRegions.includes(region)) {
             throw new Error(`Region not available. The available regions are ${this.availableRegions.join(', ')}`);

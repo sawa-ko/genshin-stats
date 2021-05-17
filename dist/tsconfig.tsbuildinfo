@@ -153,7 +153,7 @@
       },
       "../src/game-info.ts": {
         "version": "913d6f514af88c4498d84ea460757429ee55d688496dd8dcba69a57655ec8444",
-        "signature": "4515e44073fc5d0f658d6e99f422ec5f14bd153a645f0ecbf33de3773ae5ef9e",
+        "signature": "645f494b99501a7f87c16e4bc962978346512649f5187c9c9b04d1c1f4051690",
         "affectsGlobalScope": false
       },
       "../node_modules/axios/index.d.ts": {
@@ -168,7 +168,7 @@
       },
       "../src/user-stats.ts": {
         "version": "13ed5e8dee124c8dc921e181fe1fe054343df2a8931d16942c8ae74ba6e7bf83",
-        "signature": "a71bd84dc613ebd6fbe92397f6224eee1bf2369dbeccd7ef4ffce4ec4258387e",
+        "signature": "ef2a45d44b220aaac601687b4c5f880820ea385c5379b4cfb56ae5848eedfc86",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
@@ -457,7 +457,6 @@
       "incremental": true,
       "allowJs": true,
       "checkJs": true,
-      "removeComments": true,
       "noImplicitAny": true,
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
